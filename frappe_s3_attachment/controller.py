@@ -234,6 +234,15 @@ def generate_file(key=None):
         frappe.local.response['body'] = "Key not found."
     return signed_url
 
+def get_url(key=None):
+    """
+    Function to stream file from s3.
+    """
+    signed_url = ""
+    if key:
+        s3_upload = S3Operations()
+        signed_url = s3_upload.get_url(key)
+    return signed_url
 
 def upload_existing_files_s3(name, file_name):
     """
