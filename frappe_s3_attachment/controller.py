@@ -232,7 +232,7 @@ def generate_file(key=None):
         frappe.local.response["location"] = signed_url
     else:
         frappe.local.response['body'] = "Key not found."
-    return
+    return signed_url
 
 
 def upload_existing_files_s3(name, file_name):
